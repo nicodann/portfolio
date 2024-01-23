@@ -24,12 +24,15 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <h1>
-        Nico Dann | Full Stack Web Developer
+        Nico Dann
       </h1>
+      <h2>
+        Full Stack Web Developer
+      </h2>
 
-      <section className="flex-row min-w-full bg-red-700">
+      <section className="flex flex-row justify-between min-w-ful gap-4">
         {projects.map((project, i) => (
-          <div key={i} className="bg-amber-50 max-w-md">
+          <div key={i} className="bg-amber-50 p-4">
             <h2>{project.name}</h2>
             <div id="project_description" className="max-w-80">{project.description}</div>
           </div>
