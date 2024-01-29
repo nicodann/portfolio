@@ -1,0 +1,21 @@
+{
+	"jsxBracketSameLine": false,
+	"jsxSingleQuote": false,
+	"useTabs": true,
+	"tabWidth": 2,
+	"semi": true,
+	"singleQuote": true,
+	"bracketSpacing": true,
+	"bracketSameLine": false,
+	"importOrder": [
+		"^next",
+		"^react",
+		"<THIRD_PARTY_MODULES>",
+		"^@/(.*)$",
+		"^../",
+		"^[./]"
+	],
+	"importOrderSeparation": true,
+	"importOrderSortSpecifiers": true,
+	"importOrderGroupNamespaceSpecifiers": true
+}

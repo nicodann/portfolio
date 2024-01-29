@@ -46,7 +46,16 @@ export default function Home() {
           </h2>
 
           <section className="flex gap-2">
-            {links.map((link,i) => <h2 key={i}><Link href={link.href}>{link.name}{i < links.length -1 && '|'}</Link></h2>)}
+            {links.map((link,i) => (
+
+              <h2 key={i}>
+                <Link href={link.href}>
+                  {link.name}
+                </Link>
+                {i < links.length -1 && '|'}
+              </h2>
+            )
+            )}
           </section>
 
         </section>
