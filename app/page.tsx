@@ -1,6 +1,17 @@
 import Image from 'next/image'
 
 export default function Home() {
+  const links = [
+    {
+      name:'github',
+      href:'https://github.com/nicodann'
+    },
+    {
+      name: 'linkedIn',
+      href: 'https://www.linkedin.com/in/nicodann/'
+    },    
+  ]
+  
   const projects = [
     {
       name:"Tweeter", 
