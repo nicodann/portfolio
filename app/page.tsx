@@ -17,18 +17,21 @@ export default function Home() {
     {
       name:"Tweeter", 
       image_url:"",
+      github_url:"",
       description:
         "Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus"
       }, 
     {
       name:"handydown", 
       image_url:"",
+      github_url:"",
       description:
         "Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus"
       },
     {
       name: "log", 
       image_url:"",
+      github_url:"",
       description:
         "Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus. Lorem ipsum goonum wobby dragon mutem ignoramus"
       }
@@ -47,7 +50,6 @@ export default function Home() {
 
           <section className="flex gap-2">
             {links.map((link,i) => (
-
               <h2 key={i}>
                 <Link href={link.href}>
                   {link.name}
