@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   const links = [
@@ -11,7 +12,7 @@ export default function Home() {
       href: 'https://www.linkedin.com/in/nicodann/'
     },    
   ]
-  
+
   const projects = [
     {
       name:"Tweeter", 
@@ -33,13 +34,23 @@ export default function Home() {
       }
   ]
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>
-        Nico Dann
-      </h1>
-      <h2>
-        Full Stack Web Developer
-      </h2>
+    <main className="flex min-h-screen flex-col items-center justify-around p-24">
+      <section className="flex gap-12">
+        <h1>
+          Nico Dann
+        </h1>
+
+        <section className="flex flex-col items-center">
+          <h2>
+            Full Stack Web Developer
+          </h2>
+
+          <section className="flex gap-2">
+            {links.map((link,i) => <h2 key={i}><Link href={link.href}>{link.name}{i < links.length -1 && '|'}</Link></h2>)}
+          </section>
+
+        </section>
+      </section>
 
       <section className="flex flex-row justify-between min-w-ful gap-4">
         {projects.map((project, i) => (
