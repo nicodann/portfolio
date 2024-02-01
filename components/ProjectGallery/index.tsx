@@ -42,13 +42,13 @@ export default function ProjectGallery() {
     }, 
   ]
   return (
-    <section className="flex flex-row justify-center min-w-full gap-4 flex-wrap">
+    <section className="flex flex-row justify-between min-w-full flex-wrap">
         {projects.map((project, i) => (
           <div key={i} className="flex flex-col gap-6 bg-amber-50 p-4 justify-between">
             <h2>{project.name}</h2>
             <div className="flex flex-col gap-4 relative min-h-32">
               {project.image_url ?
-              <Image src={project.image_url} alt={project.name} fill objectFit='cover' objectPosition="50% top"/>
+              <Image src={project.image_url} alt={project.name} fill className="object-cover object-top"/>
               //  fill
               : project.url &&
                 <iframe src={project.url}/>
