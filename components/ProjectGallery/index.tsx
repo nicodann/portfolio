@@ -15,7 +15,7 @@ export default function ProjectGallery() {
     {
       name:"Nico Dann Drums",
       url:"https://www.nicodann.com",
-      image_url:"",
+      image_url:"/images/Nico_Dann_drums.png",
       github_url:"https://github.com/nicodann/nicodanndotcom",
       description:"My personal artist page"
     },   
@@ -46,11 +46,11 @@ export default function ProjectGallery() {
         {projects.map((project, i) => (
           <div key={i} className="flex flex-col gap-6 bg-amber-50 p-4 justify-between">
             <h2>{project.name}</h2>
-            <div className="flex flex-col gap-4 relative">
-              {!project.url &&
-              <Image src={project.image_url} alt={project.name} fill/>
-              }
-              {project.url &&
+            <div className="flex flex-col gap-4 relative min-h-32">
+              {project.image_url ?
+              <Image src={project.image_url} alt={project.name} fill objectFit='cover' objectPosition="50% top"/>
+              //  fill
+              : project.url &&
                 <iframe src={project.url}/>
               }
               <p id="project_description" className="max-w-80">{project.description}</p>
