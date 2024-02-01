@@ -35,12 +35,12 @@ export default function ProjectGallery() {
     }, 
   ]
   return (
-    <section className="flex flex-row justify-between min-w-ful gap-4">
+    <section className="flex flex-row justify-center min-w-full gap-4 flex-wrap">
         {projects.map((project, i) => (
-          <div key={i} className="flex flex-col gap-6 bg-amber-50 p-4 w-80 justify-between">
+          <div key={i} className="flex flex-col gap-6 bg-amber-50 p-4 justify-between">
             <h2>{project.name}</h2>
-            <div className="flex flex-col gap-4">
-              <Image src={project.image_url} alt={project.name} width={300} height={200}/>
+            <div className="flex flex-col gap-4 relative">
+              <Image src={project.image_url} alt={project.name} fill/>
               <p id="project_description" className="max-w-80">{project.description}</p>
             </div>
             <footer>
