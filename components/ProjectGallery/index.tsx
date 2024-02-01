@@ -5,13 +5,20 @@ import React from 'react'
 export default function ProjectGallery() {
   type Project = {
     name: string;
+    url?:string;
     image_url: string;
     github_url: string;
     description: string;
   }
 
   const projects: Project[] = [
-   
+    {
+      name:"Nico Dann Drums",
+      url:"https://www.nicodann.com",
+      image_url:"",
+      github_url:"https://github.com/nicodann/nicodanndotcom",
+      description:"My personal artist page"
+    },   
     {
       name:"handydown", 
       image_url:"/images/handydown.png",
@@ -19,13 +26,13 @@ export default function ProjectGallery() {
       description:
         "A Full-Stack CRUD App for donating used youth athletic equipment that your family has outgrown. Like a buy-and-sell without the money. React | MUI | Node | Express | Sequelize | Postgres"
     },
-    {
-      name: "PlotTwist", 
-      image_url:"",
-      github_url:"https://github.com/todd-demone/PlotTwist",
-      description:
-        "PlotTwist is a full-stack social app that allows users to collaborate on writing a short story."
-    },
+    // {
+    //   name: "PlotTwist", 
+    //   image_url:"",
+    //   github_url:"https://github.com/todd-demone/PlotTwist",
+    //   description:
+    //     "PlotTwist is a full-stack social app that allows users to collaborate on writing a short story."
+    // },
     {
       name:"scheduler", 
       image_url:"/images/scheduler.png",
@@ -40,12 +47,17 @@ export default function ProjectGallery() {
           <div key={i} className="flex flex-col gap-6 bg-amber-50 p-4 justify-between">
             <h2>{project.name}</h2>
             <div className="flex flex-col gap-4 relative">
+              {!project.url &&
               <Image src={project.image_url} alt={project.name} fill/>
+              }
+              {project.url &&
+                <iframe src={project.url}/>
+              }
               <p id="project_description" className="max-w-80">{project.description}</p>
             </div>
-            <footer>
+            <footer className='flex justify-between'>
               <Link href={project.github_url}>github</Link>
-              {/* <p>{project.github_url}</p> */}
+              {project.url && <Link href={project.url}>{project.name}</Link>}
             </footer>
           </div>
         ))}
