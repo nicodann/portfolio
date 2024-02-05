@@ -23,7 +23,7 @@ export default function ProjectGallery() {
             <div className="flex flex-col gap-4">
               <h2>{project.name}</h2>
               <div className='relative min-h-32'>
-                <Image src={project.image_url} alt={project.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover object-top"/>
+                <Image src={project.image_url} alt={project.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover object-top" priority/>
               </div>
               <p id="project_description" className="max-w-80">{project.description}</p>
             </div>
