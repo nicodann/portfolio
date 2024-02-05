@@ -5,7 +5,6 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-24 p-4">
       <div className=" flex flex-col gap-24">
-      {/* w-3/5 */}
         <Header/>
         <ProjectGallery />
       </div>
