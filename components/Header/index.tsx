@@ -8,19 +8,24 @@ export default function Header() {
             Nico Dann
           </h1>
 
-          <section className="flex flex-col">
+          <section className="flex flex-col gap-6 sm:gap-0">
             <h2>
               Full Stack Web Developer
             </h2>
 
-            <section className="flex gap-2 justify-center lg:justify-end">
+            <section className="flex flex-col sm:flex-row gap-2 justify-center lg:justify-end flex-wrap">
               {links.map((link,i) => (
-                <h2 key={i}>
-                  <Link href={link.href}>
-                    {link.name}
-                  </Link>
-                  {i < links.length -1 && '|'}
-                </h2>
+                <>
+                  <h2 key={i}>
+                    <Link href={link.href}>
+                      {link.name}
+                    </Link>
+                  </h2>
+
+                  {i < links.length -1 && 
+                    <h2 className='hidden sm:inline'>|</h2>
+                  }
+                </>
               )
               )}
             </section>
