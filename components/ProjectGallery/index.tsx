@@ -42,7 +42,7 @@ export default function ProjectGallery() {
     }, 
   ]
   return (
-    <section className="flex flex-row justify-between min-w-full flex-wrap">
+    <section className="flex flex-row justify-center min-w-full flex-wrap gap-4">
         {projects.map((project, i) => (
           <div key={i} className="flex flex-col gap-6 bg-amber-50 p-4 justify-between">
             <h2>{project.name}</h2>
