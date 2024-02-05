@@ -19,7 +19,8 @@ export default function ProjectGallery() {
   return (
     <section className="flex lg:flex-row justify-center flex-wrap gap-4">
         {filteredProjects.map((project, i) => (
-          <div key={i} className="flex flex-col gap-6 bg-amber-50 p-4 justify-between">
+
+          <div key={i} className="flex flex-col gap-6 bg-amber-50 p-4 justify-between w-72 sm:w-80">
             <div className="flex flex-col gap-4">
               <h2>{project.name}</h2>
               <div className='relative min-h-32'>
@@ -32,6 +33,7 @@ export default function ProjectGallery() {
               {project.url && <Link href={project.url}>{project.name}</Link>}
             </footer>
           </div>
+
         ))}
       </section>
   )
