@@ -2,7 +2,7 @@
 
 import links from '@/data/links.json'
 import Link from 'next/link'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 
 export default function Header({setBgColour}: {setBgColour: (value:string) => void}) {
   const name = 'Nico Dann'
@@ -13,14 +13,19 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
     }
   })
 
-  const bgColours = ['#D6DBDC', '#526760','#374B4A','#DA3E52', '#FE5F00'];
+  const bgColours = ['#D6DBDC', '#526760','#374B4A','#DA3E52', '#FE5F00', '#000000'];
   const [colourIndex, setColourIndex] = useState(1);
+  const [nameArray, setNameArray] = useState(letterArray)
+  const [isHoveredOver, setIsHoveredOver] = useState(false)
+
+  useEffect(() => {
+    console.log("isHoveredOver:",isHoveredOver)
+  }, [isHoveredOver]);
 
   const incrementColourIndex = () => {
     colourIndex === bgColours.length - 1 ? setColourIndex(0) : setColourIndex(prev => prev + 1);
   }
   
-  const [nameArray, setNameArray] = useState(letterArray)
 
   const handleLetterClick = (i:number) => {
     setBgColour(bgColours[colourIndex])
@@ -38,19 +43,23 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
 
   return (
     <header className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
-        <div className='flex justify-center'>
+        <div className='flex justify-center cursor-pointer'>
           {nameArray.length !== 1
             ? nameArray.map((letter, i) => (
-              <h1 key={i} onClick={() => handleLetterClick(i)}>
+              <h1 key={i} onMouseOver={() => setIsHoveredOver(true)} onMouseLeave={() => setIsHoveredOver(false)} onClick={() => handleLetterClick(i)} style={{
+                background:isHoveredOver ? bgColours[colourIndex + 2] : ''
+              }}>
                   {letter}
               </h1>
               ))
-            : <h1 className='text-white' onClick={() => handleResetClick()}>RESET</h1>
+            : <h1 className='text-white' onClick={() => handleResetClick()}>
+                RESET
+              </h1>
             }
         </div>
 
           <section className="flex flex-col gap-6 sm:gap-0">
-            <h2>
+            <h2 style={{color:bgColours[colourIndex + 1]}}>
               Full Stack Web Developer
             </h2>
 
