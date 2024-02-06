@@ -7,6 +7,12 @@ import { Fragment, useEffect, useState } from 'react'
 export default function Header() {
   const name = 'Nico Dann'
   const letterArray = name.split('')
+  letterArray.forEach((letter, i) => {
+    if (letter === ' ') {
+      letterArray[i] = '\u00A0'
+    }
+  })
+  console.log("letterArray:",letterArray)
   const [nameArray, setNameArray] = useState(letterArray)
   
   useEffect(() => {
@@ -30,11 +36,6 @@ export default function Header() {
               ))
             : <h2 onClick={() => setNameArray(letterArray)}>RESET</h2>
             }
-{/* 
-         {letterArray.map((letter, i) => <h2 key={i} onClick={() => {
-            letterArray.splice(i,1)
-            console.log("New:", letterArray)
-          }}>{letter}</h2>)} */}
         </div>
 
           <section className="flex flex-col gap-6 sm:gap-0">
