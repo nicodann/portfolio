@@ -30,6 +30,12 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
     })
   }
 
+  const handleResetClick = () => {
+    setBgColour(bgColours[colourIndex])
+    incrementColourIndex();
+    setNameArray(letterArray)
+  }
+
   return (
     <header className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
         <div className='flex justify-center'>
@@ -39,7 +45,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
                   {letter}
               </h1>
               ))
-            : <h1 className='text-white' onClick={() => setNameArray(letterArray)}>RESET</h1>
+            : <h1 className='text-white' onClick={() => handleResetClick()}>RESET</h1>
             }
         </div>
 
