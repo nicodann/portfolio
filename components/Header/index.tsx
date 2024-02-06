@@ -2,9 +2,9 @@
 
 import links from '@/data/links.json'
 import Link from 'next/link'
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useState } from 'react'
 
-export default function Header() {
+export default function Header({setBgColour}: {setBgColour: (value:string) => void}) {
   const name = 'Nico Dann'
   const letterArray = name.split('')
   letterArray.forEach((letter, i) => {
@@ -12,29 +12,34 @@ export default function Header() {
       letterArray[i] = '\u00A0'
     }
   })
-  console.log("letterArray:",letterArray)
-  const [nameArray, setNameArray] = useState(letterArray)
-  
-  useEffect(() => {
-    console.log("nameArray:",nameArray)
-  }, [nameArray]);
 
+  const bgColours = ['#D6DBDC', '#526760','#374B4A','#DA3E52', '#FE5F00'];
+  const [colourIndex, setColourIndex] = useState(1);
+
+  const incrementColourIndex = () => {
+    colourIndex === bgColours.length - 1 ? setColourIndex(0) : setColourIndex(prev => prev + 1);
+  }
   
+  const [nameArray, setNameArray] = useState(letterArray)
+
+  const handleLetterClick = (i:number) => {
+    setBgColour(bgColours[colourIndex])
+    incrementColourIndex();
+    setNameArray((prev) => {
+      return prev.toSpliced(i,1)
+    })
+  }
+
   return (
     <header className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
-        <div className='flex bg-red-50'>
+        <div className='flex justify-center'>
           {nameArray.length !== 1
             ? nameArray.map((letter, i) => (
-              <h2 key={i} onClick={() => {
-                  setNameArray((prev) => {
-                    console.log("prev:",prev)
-                    return prev.toSpliced(i,1)
-                  })
-                }}>
+              <h1 key={i} onClick={() => handleLetterClick(i)}>
                   {letter}
-              </h2>
+              </h1>
               ))
-            : <h2 onClick={() => setNameArray(letterArray)}>RESET</h2>
+            : <h1 className='text-white' onClick={() => setNameArray(letterArray)}>RESET</h1>
             }
         </div>
 
