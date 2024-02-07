@@ -102,9 +102,10 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
               return (
                 <h1 
                   key={i}
-                  className='transition'
+                  // className='transition-all'
                   style={{
-                    display: letterObject[letter] ? 'flex' : 'none'
+                    visibility: letterObject[letter] ? 'visible' : 'hidden',
+                    transition: 'visibility 1s, linear'
                   }}
                 >
                     {letter}
