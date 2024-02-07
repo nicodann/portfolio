@@ -70,7 +70,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
 
   return (
     <header className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
-      <div id="#interactive_heading" className='flex justify-between'>
+      <div id="#interactive_heading" className='flex justify-center lg:justify-between'>
         <div className='flex justify-center cursor-pointer'>
           {disappearingNameArray.length === 0 || disappearingNameArray.length === 1 && disappearingNameArray[0] === '\u00A0'
             ? 
@@ -95,17 +95,21 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
         </div>
       </div>
 
-      <div id='#second_heading_plus_nav' className='flex gap-6'>
+      <div id='#second_heading_plus_nav' className='flex gap-6 flex-wrap'>
         <div id='#second_name' className='flex text-black'>
           {
             fallingNameArray.map((letter, i) => {
               return (
-                <h1 
+                <h1
                   key={i}
                   // className='transition-all'
-                  style={{
-                    opacity: letterObject[letter] ? '1' : '0',
-                    transition: 'opacity, 1s'
+                  style={{position: 'relative',
+                    // position: letterObject[letter] ? 'static' :'fixed',
+                    top: letterObject[letter] ? '0px' : '-400px',
+                    transition: 'top, 1s'
+                    // top: '0px'
+                    // opacity: letterObject[letter] ? '1' : '0',
+                    // transition: 'opacity, 1s',
                   }}
                 >
                     {letter}
