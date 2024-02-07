@@ -16,12 +16,15 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
     }
   })
 
-  const letterObject: {[key:string]:boolean} = letterArrayUnicode.reduce(
-    (a, letter) => {
-      return { ...a, [letter]: false }
-    }, 
-    {}
-  )
+  const initialLetterObject = letterArrayUnicode.reduce(
+     (a, letter) => {
+       return { ...a, [letter]: false }
+     }, 
+     {}
+   )
+
+  const [letterObject, setLetterObject] = useState<{[key:string]:boolean}>(initialLetterObject)
+  
 
   const bgColours = ['#D6DBDC', '#526760','#374B4A','#DA3E52', '#FE5F00'];
   const [colourIndex, setColourIndex] = useState(1);
@@ -44,18 +47,21 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
   }
   
 
-  const handleLetterClick = (i:number) => {
+  const handleLetterClick = (letter:string, i:number) => {
+    console.log("clicked")
     setBgColour(bgColours[colourIndex])
     incrementColourIndex();
     setDisappearingNameArray((prev) => {
       return prev.toSpliced(i,1)
     })
+    setLetterObject(prev => ({ ...prev, [letter]: true }))
   }
 
   const handleResetClick = () => {
     setBgColour(bgColours[colourIndex])
     incrementColourIndex();
-    setDisappearingNameArray(letterArray)
+    setDisappearingNameArray(letterArrayUnicode)
+    setLetterObject(initialLetterObject)
   }
 
   useEffect(() => {
@@ -75,12 +81,12 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
               disappearingNameArray.map((letter, i) => (
                 <h1 
                   key={i} 
-                  // onMouseOver={() => setIsHoveredOver((prev) => {return {...prev, [i]:true}})} 
-                  // onMouseLeave={() => setIsHoveredOver((prev) => {return {...prev, [i]: false}})} 
-                  onClick={() => handleLetterClick(i)} 
+                  onClick={() => handleLetterClick(letter, i)} 
                   style={{
                     background:isHoveredOver[i] ? bgColours[colourIndex + 2] : ''
                   }}
+                  // onMouseOver={() => setIsHoveredOver((prev) => {return {...prev, [i]:true}})} 
+                  // onMouseLeave={() => setIsHoveredOver((prev) => {return {...prev, [i]: false}})} 
                 >
                     {letter}
                 </h1>
@@ -92,16 +98,18 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
       <div id='#second_heading_plus_nav' className='flex gap-6'>
         <div id='#second_name' className='flex text-black'>
           {
-            fallingNameArray.map((letter, i) => (
-              <h1 
-                key={i}
-                style={{
-                  display: letterObject[letter] ? 'relative' : 'none'
-                }}
-              >
-                  {letter}
-              </h1>
-              ))     
+            fallingNameArray.map((letter, i) => {
+              return (
+                <h1 
+                  key={i}
+                  className='transition'
+                  style={{
+                    display: letterObject[letter] ? 'flex' : 'none'
+                  }}
+                >
+                    {letter}
+                </h1>
+              )})     
           }
         </div>
 

@@ -18,7 +18,8 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(214,219,220)
+  background: rgb(218, 62, 82) 
+  /* background: rgb(214,219,220) */
   /* background: rgb(var(--background-start-rgb)) */
   /* background: linear-gradient(
       to bottom,
