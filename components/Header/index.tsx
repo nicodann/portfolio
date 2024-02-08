@@ -29,18 +29,18 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
   const bgColours = ['#D6DBDC', '#526760','#374B4A','#DA3E52', '#FE5F00'];
   const [colourIndex, setColourIndex] = useState(1);
   const [disappearingNameArray, setDisappearingNameArray] = useState(letterArrayUnicode)
-  const [fallingNameArray, setFallingNameArray] = useState(letterArrayUnicode)
-  const [isHoveredOver, setIsHoveredOver] = useState<{[key:number]:boolean}>({
-    0: false,
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-    8: false
-  })
+  // const [fallingNameArray, _setFallingNameArray] = useState(letterArrayUnicode)
+  // const [isHoveredOver, setIsHoveredOver] = useState<{[key:number]:boolean}>({
+  //   0: false,
+  //   1: false,
+  //   2: false,
+  //   3: false,
+  //   4: false,
+  //   5: false,
+  //   6: false,
+  //   7: false,
+  //   8: false
+  // })
 
   const incrementColourIndex = () => {
     colourIndex === bgColours.length - 1 ? setColourIndex(0) : setColourIndex(prev => prev + 1);
@@ -82,9 +82,9 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
                 <h1 
                   key={i} 
                   onClick={() => handleLetterClick(letter, i)} 
-                  style={{
-                    background:isHoveredOver[i] ? bgColours[colourIndex + 2] : ''
-                  }}
+                  // style={{
+                  //   background:isHoveredOver[i] ? bgColours[colourIndex + 2] : ''
+                  // }}
                   // onMouseOver={() => setIsHoveredOver((prev) => {return {...prev, [i]:true}})} 
                   // onMouseLeave={() => setIsHoveredOver((prev) => {return {...prev, [i]: false}})} 
                 >
@@ -98,7 +98,8 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
       <div id='#second_heading_plus_nav' className='flex gap-6 flex-wrap'>
         <div id='#second_name' className='flex text-black'>
           {
-            fallingNameArray.map((letter, i) => {
+            // fallingNameArray.map((letter, i) => {
+              letterArrayUnicode.map((letter, i) => {
               return (
                 <h1
                   key={i}

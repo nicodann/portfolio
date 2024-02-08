@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
-import { 
-  Inter, 
-  // Noto_Serif 
-} from 'next/font/google'
+// import { 
+//   Inter, 
+//   // Noto_Serif 
+//   Playfair_Display
+// } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+// const playfair = Playfair_Display({subsets: ['latin']})
+// const inter = Inter({ subsets: ['latin'] })
 // const noto = Noto_Serif({subsets: ['latin']})
 
 export const metadata: Metadata = {
@@ -20,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>{children}</body>
     </html>
   )
 }
