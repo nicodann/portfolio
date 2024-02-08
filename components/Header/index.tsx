@@ -28,7 +28,6 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
 
   const bgColours = ['#D6DBDC', '#526760','#374B4A','#DA3E52', '#FE5F00'];
   const [colourIndex, setColourIndex] = useState(1);
-  // const [disappearingNameArray, setDisappearingNameArray] = useState(letterArrayUnicode)
   const [displayResetButton, setDisplayResetButton] = useState(false);
   const [counter, setCounter] = useState(1)
 
@@ -66,10 +65,6 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
     setLetterObject(initialLetterObject)
   }
 
-  useEffect(() => {
-    console.log("letterObject:",letterObject)
-  }, [letterObject]);
-
   return (
     <header className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
       <div id="#interactive_heading" className='flex justify-center lg:justify-between'>
@@ -93,25 +88,23 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
 
       <div id='#second_heading_plus_nav' className='flex gap-6 flex-wrap'>
         <div id='#second_name' className='flex text-black'>
-          {
-            // fallingNameArray.map((letter, i) => {
-              letterArrayUnicode.map((letter, i) => {
-              return (
-                <h1
-                  key={i}
-                  style={{position: 'relative',
-                    top: letterObject[letter] ? '0px' : '-400px',
-                    transition: 'top, 1s'
-                  }}
-                >
-                    {letter}
-                </h1>
-              )})     
+          {letterArrayUnicode.map((letter, i) => {
+            return (
+              <h1
+                key={i}
+                style={{position: 'relative',
+                  top: letterObject[letter] ? '0px' : '-400px',
+                  transition: 'top, 1s'
+                }}
+              >
+                  {letter}
+              </h1>
+            )})     
           }
         </div>
 
         <h1 
-          className='text-white' 
+          className='text-white cursor-pointer' 
           onClick={() => handleResetClick()}
           style={{
             visibility: displayResetButton ? 'visible' : 'hidden'
