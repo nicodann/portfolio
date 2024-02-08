@@ -31,7 +31,8 @@ body {
 
 h1 {
   font-size: 3.6em;
-  font-family: var(--font-playfair)
+  font-family: var(--font-playfair);
+  font-weight: 500;
 }
 
 h2 {
