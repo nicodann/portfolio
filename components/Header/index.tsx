@@ -68,7 +68,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
   return (
     <header className='flex flex-col items-center lg:items-start'>
       <div id='#first-row' className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
-        <div id="#title" className='flex justify-center lg:justify-between'>
+        <div id="#title" className='flex flex-col lg:flex-row lg:items-baseline justify-center lg:justify-between lg:gap-2'>
           <div className='flex justify-center cursor-pointer'>
             {letterArrayUnicode.map((letter, i) => {
               return (
@@ -85,7 +85,19 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
               )})        
             }
           </div>
+          <button>
+          <h3 
+            className='text-white cursor-pointer' 
+            onClick={() => handleResetClick()}
+            style={{
+              visibility: displayResetButton ? 'visible' : 'hidden'
+            }}
+          >
+            RESET
+          </h3>
+        </button>
         </div>
+
 
         <div id='#second_title_plus_subtitle_nav' className='flex flex-col-reverse lg:flex-row gap-6 items-center'>
           <div id='#second_name' className='flex text-black'>
@@ -94,7 +106,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
                 <h1
                   key={i}
                   style={{position: 'relative',
-                    // top: letterObject[letter] ? '0px' : '-800px',
+                    top: letterObject[letter] ? '0px' : '-800px',
                     transition: 'top, 1s',
                     color: bgColours[colourIndex + 2]
                   }}
@@ -135,17 +147,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
         </div>
 
       </div>
-      <button>
-        <h2 
-          className='text-white cursor-pointer' 
-          onClick={() => handleResetClick()}
-          style={{
-            visibility: displayResetButton ? 'visible' : 'hidden'
-          }}
-        >
-          RESET
-        </h2>
-      </button>
+      
     </header>
   )
 }
