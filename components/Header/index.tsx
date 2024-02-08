@@ -66,9 +66,9 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
   }
 
   return (
-    <header className='flex flex-col items-start'>
-      <div className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
-        <div id="#interactive_heading" className='flex justify-center lg:justify-between'>
+    <header className='flex flex-col items-center lg:items-start'>
+      <div id='#first-row' className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
+        <div id="#title" className='flex justify-center lg:justify-between'>
           <div className='flex justify-center cursor-pointer'>
             {letterArrayUnicode.map((letter, i) => {
               return (
@@ -87,15 +87,16 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
           </div>
         </div>
 
-        <div id='#second_heading_plus_nav' className='flex gap-6 flex-wrap'>
+        <div id='#second_title_plus_subtitle_nav' className='flex flex-col-reverse lg:flex-row gap-6 items-center'>
           <div id='#second_name' className='flex text-black'>
             {letterArrayUnicode.map((letter, i) => {
               return (
                 <h1
                   key={i}
                   style={{position: 'relative',
-                    top: letterObject[letter] ? '0px' : '-400px',
-                    transition: 'top, 1s'
+                    // top: letterObject[letter] ? '0px' : '-800px',
+                    transition: 'top, 1s',
+                    color: bgColours[colourIndex + 2]
                   }}
                 >
                     {letter}
@@ -135,7 +136,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
 
       </div>
       <button>
-        <h1 
+        <h2 
           className='text-white cursor-pointer' 
           onClick={() => handleResetClick()}
           style={{
@@ -143,7 +144,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
           }}
         >
           RESET
-        </h1>
+        </h2>
       </button>
     </header>
   )
