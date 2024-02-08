@@ -28,39 +28,41 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
 
   const bgColours = ['#D6DBDC', '#526760','#374B4A','#DA3E52', '#FE5F00'];
   const [colourIndex, setColourIndex] = useState(1);
-  const [disappearingNameArray, setDisappearingNameArray] = useState(letterArrayUnicode)
-  // const [fallingNameArray, _setFallingNameArray] = useState(letterArrayUnicode)
-  // const [isHoveredOver, setIsHoveredOver] = useState<{[key:number]:boolean}>({
-  //   0: false,
-  //   1: false,
-  //   2: false,
-  //   3: false,
-  //   4: false,
-  //   5: false,
-  //   6: false,
-  //   7: false,
-  //   8: false
-  // })
+  // const [disappearingNameArray, setDisappearingNameArray] = useState(letterArrayUnicode)
+  const [displayResetButton, setDisplayResetButton] = useState(false);
+  const [counter, setCounter] = useState(1)
+
+  useEffect(() => {
+    counter !== 1 && setDisplayResetButton(true)
+    counter === 1 && setDisplayResetButton(false)
+  }, [counter]);
 
   const incrementColourIndex = () => {
     colourIndex === bgColours.length - 1 ? setColourIndex(0) : setColourIndex(prev => prev + 1);
   }
+
+  const incrementCounter = () => {
+    if (counter === name.length) {
+      setDisplayResetButton(false)
+      setCounter(1)
+    } else {
+      setCounter(prev => prev + 1)
+    }
+  }
   
 
-  const handleLetterClick = (letter:string, i:number) => {
+  const handleLetterClick = (letter:string) => {
     console.log("clicked")
     setBgColour(bgColours[colourIndex])
     incrementColourIndex();
-    setDisappearingNameArray((prev) => {
-      return prev.toSpliced(i,1)
-    })
-    setLetterObject(prev => ({ ...prev, [letter]: true }))
+    incrementCounter();
+    setLetterObject(prev => ({ ...prev, [letter]: true }));
   }
 
   const handleResetClick = () => {
     setBgColour(bgColours[colourIndex])
     incrementColourIndex();
-    setDisappearingNameArray(letterArrayUnicode)
+    setCounter(1);
     setLetterObject(initialLetterObject)
   }
 
@@ -72,26 +74,20 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
     <header className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
       <div id="#interactive_heading" className='flex justify-center lg:justify-between'>
         <div className='flex justify-center cursor-pointer'>
-          {disappearingNameArray.length === 0 || disappearingNameArray.length === 1 && disappearingNameArray[0] === '\u00A0'
-            ? 
-              <h1 className='text-white' onClick={() => handleResetClick()}>
-                RESET
+          {letterArrayUnicode.map((letter, i) => {
+            return (
+              <h1
+                key={i}
+                onClick={() => handleLetterClick(letter)} 
+                style={{position: 'relative',
+                  top: !letterObject[letter] ? '0px' : '-400px',
+                  transition: 'top, 1s'
+                }}
+              >
+                  {letter}
               </h1>
-            :
-              disappearingNameArray.map((letter, i) => (
-                <h1 
-                  key={i} 
-                  onClick={() => handleLetterClick(letter, i)} 
-                  // style={{
-                  //   background:isHoveredOver[i] ? bgColours[colourIndex + 2] : ''
-                  // }}
-                  // onMouseOver={() => setIsHoveredOver((prev) => {return {...prev, [i]:true}})} 
-                  // onMouseLeave={() => setIsHoveredOver((prev) => {return {...prev, [i]: false}})} 
-                >
-                    {letter}
-                </h1>
-                ))       
-            }
+            )})        
+          }
         </div>
       </div>
 
@@ -103,14 +99,9 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
               return (
                 <h1
                   key={i}
-                  // className='transition-all'
                   style={{position: 'relative',
-                    // position: letterObject[letter] ? 'static' :'fixed',
                     top: letterObject[letter] ? '0px' : '-400px',
                     transition: 'top, 1s'
-                    // top: '0px'
-                    // opacity: letterObject[letter] ? '1' : '0',
-                    // transition: 'opacity, 1s',
                   }}
                 >
                     {letter}
@@ -118,6 +109,16 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
               )})     
           }
         </div>
+
+        <h1 
+          className='text-white' 
+          onClick={() => handleResetClick()}
+          style={{
+            visibility: displayResetButton ? 'visible' : 'hidden'
+          }}
+        >
+          RESET
+        </h1>
 
         <div id='#subtitle_nav' className="flex flex-col gap-6 sm:gap-0">
           <h2 style={{color:bgColours[colourIndex + 1]}}>
