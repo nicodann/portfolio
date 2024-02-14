@@ -67,8 +67,8 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
   }
 
   return (
-    <header id='#first-row' className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
-      <div id="#title" className='flex flex-col lg:flex-row lg:items-baseline justify-center lg:justify-between lg:gap-2'>
+    <header className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
+      <div id="#title_reset_button" className='flex flex-col lg:items-end justify-center lg:justify-between lg:gap-2'>
         <div className='flex justify-center cursor-pointer'>
           {letterArrayUnicode.map((letter, i) => {
             return (
@@ -86,7 +86,16 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
             )})        
           }
         </div>
-        <button>
+        <button 
+          className='
+              lg:relative
+              ' 
+          style={{
+            transition: 'all, 1s', 
+            left: displayResetButton ? '400px' : '0px',
+            fontSize: displayResetButton ? '2em' : '1em'
+          }}
+        >
           {displayResetButton 
           ? <h3 
           className='text-white cursor-pointer' 
@@ -101,20 +110,11 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
           click above!
         </h3>
           }
-        {/* <h3 
-          className='text-white cursor-pointer' 
-          onClick={() => handleResetClick()}
-          style={{
-            visibility: displayResetButton ? 'visible' : 'hidden'
-          }}
-        >
-          RESET
-        </h3> */}
       </button>
       </div>
 
 
-      <div id='#second_title_plus_subtitle_nav' className='flex flex-col-reverse lg:flex-row items-center'>
+      <div id='#second_title_plus_subtitle_nav' className='flex flex-col-reverse lg:flex-row items-center lg:items-start lg:gap-4'>
         <div id='#second_name' className='flex text-black' style={{
           height: displayResetButton ? '40px' : 0,
           transition: 'all 1s'
