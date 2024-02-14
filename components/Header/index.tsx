@@ -87,7 +87,21 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
           }
         </div>
         <button>
-        <h3 
+          {displayResetButton 
+          ? <h3 
+          className='text-white cursor-pointer' 
+          onClick={() => handleResetClick()}
+        >
+          RESET
+        </h3>
+          : <h3 
+          className='text-white cursor-pointer' 
+          onClick={() => handleResetClick()}
+        >
+          click above!
+        </h3>
+          }
+        {/* <h3 
           className='text-white cursor-pointer' 
           onClick={() => handleResetClick()}
           style={{
@@ -95,20 +109,24 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
           }}
         >
           RESET
-        </h3>
+        </h3> */}
       </button>
       </div>
 
 
-      <div id='#second_title_plus_subtitle_nav' className='flex flex-col-reverse lg:flex-row gap-6 items-center'>
-        <div id='#second_name' className='flex text-black'>
+      <div id='#second_title_plus_subtitle_nav' className='flex flex-col-reverse lg:flex-row items-center'>
+        <div id='#second_name' className='flex text-black' style={{
+          height: displayResetButton ? '40px' : 0,
+          transition: 'all 1s'
+        }}>
           {letterArrayUnicode.map((letter, i) => {
             return (
               <h1
                 key={i}
                 style={{position: 'relative',
                   top: letterObject[letter] ? '0px' : '-800px',
-                  transition: 'top, 1s',
+                  opacity: !letterObject[letter] ? 0 : 1,
+                  transition: 'top, 1s, opacity, 1s',
                   color: bgColours[colourIndex + 2]
                 }}
               >
