@@ -42,3 +42,7 @@ h2 {
 a {
   color: darkorchid;
 }
+
+a:hover {
+  color: burlywood
+}
