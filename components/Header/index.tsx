@@ -9,7 +9,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
   const name = 'Nico Dann'
   const letterArray = name.split('')
   const letterArrayUnicode = [...letterArray]
-
+  
   
   letterArrayUnicode.forEach((letter, i) => {
     if (letter === ' ') {
@@ -17,17 +17,16 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
     }
   })
 
-  const initialLetterObject = letterArrayUnicode.reduce(
-     (a, letter) => {
-       return { ...a, [letter]: false }
-     }, 
-     {}
-   )
-
-  const [letterObject, setLetterObject] = useState<{[key:string]:boolean}>(initialLetterObject)
+  const initialLetterMovedObject = letterArrayUnicode.reduce(
+    (a, _letter, i) => {
+    return {...a, [i]: false}
+  },
+  {}
+)
+  const [letterMovedObject, setLetterMovedObject] = useState<{[key:string]:boolean}>(initialLetterMovedObject)
   
 
-  const bgColours = ['#D6DBDC', '#526760','#374B4A','#DA3E52', '#FE5F00'];
+  const bgColours = ['D6DBDC', '526760','374B4A','DA3E52', 'FE5F00'];
   const [colourIndex, setColourIndex] = useState(1);
   const [displayResetButton, setDisplayResetButton] = useState(false);
   const [counter, setCounter] = useState(1)
@@ -48,22 +47,20 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
     } else {
       setCounter(prev => prev + 1)
     }
-  }
-  
+  }  
 
-  const handleLetterClick = (letter:string) => {
-    console.log("clicked")
+  const handleLetterClick = (i:number) => {
     setBgColour(bgColours[colourIndex])
     incrementColourIndex();
     incrementCounter();
-    setLetterObject(prev => ({ ...prev, [letter]: true }));
+    setLetterMovedObject(prev => ({...prev, [i]: true }))
   }
 
   const handleResetClick = () => {
     setBgColour(bgColours[colourIndex])
     incrementColourIndex();
     setCounter(1);
-    setLetterObject(initialLetterObject)
+    setLetterMovedObject(initialLetterMovedObject)
   }
 
   return (
@@ -79,16 +76,25 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
         text-center
       "
     >
-      <div id="#title_reset_button" className='flex flex-col lg:items-end justify-center lg:justify-between lg:gap-2'>
+      <div 
+        id="title_reset_button" 
+        className='
+          flex 
+          flex-col 
+          lg:items-end 
+          justify-center 
+          lg:justify-between 
+          lg:gap-2
+        '
+      >
         <div className='flex justify-center cursor-pointer'>
           {letterArrayUnicode.map((letter, i) => {
             return (
               <h1
                 key={i}
-                // className={playfair.className}
-                onClick={() => handleLetterClick(letter)} 
+                onClick={() => handleLetterClick(i)} 
                 style={{position: 'relative',
-                  top: !letterObject[letter] ? '0px' : '-400px',
+                  top: !letterMovedObject[i] ? '0px' : '-400px',
                   transition: 'top, 1s'
                 }}
               >
@@ -125,8 +131,18 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
       </div>
 
 
-      <div id='#second_title_plus_subtitle_nav' className='flex flex-col-reverse lg:flex-row items-center lg:items-start lg:gap-4'>
-        <div id='#second_name' className='flex text-black' style={{
+      <div 
+        id='second_title_plus_subtitle_nav' 
+        className='
+          flex 
+          flex-col-reverse 
+          lg:flex-row 
+          items-center 
+          lg:items-start 
+          lg:gap-4
+        '
+      >
+        <div id='second_name' className='flex text-black' style={{
           height: displayResetButton ? '40px' : 0,
           transition: 'all 1s'
         }}>
@@ -135,8 +151,8 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
               <h1
                 key={i}
                 style={{position: 'relative',
-                  top: letterObject[letter] ? '0px' : '-800px',
-                  opacity: !letterObject[letter] ? 0 : 1,
+                  top: letterMovedObject[i] ? '0px' : '-800px',
+                  opacity: !letterMovedObject[i] ? 0 : 1,
                   transition: 'top, 1s, opacity, 1s',
                   color: bgColours[colourIndex + 2]
                 }}
@@ -147,7 +163,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
           }
         </div>
 
-        <div id='#subtitle_nav' className="flex flex-col gap-6 sm:gap-0">
+        <div id='subtitle_nav' className="flex flex-col gap-6 sm:gap-0">
           <h2 style={{color:bgColours[colourIndex + 1]}}>
             Full Stack Web Developer
           </h2>
