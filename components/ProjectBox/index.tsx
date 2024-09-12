@@ -1,15 +1,9 @@
 import { Project } from "@/types/Project"
 import Image from "next/image"
-import Link from "next/link"
 
 export default function ProjectBox({i, project}:{i: number, project: Project}) {
-  const links: string[] = project.github_url 
-  ? [ project.github_url ] 
-  : []
-
-  project.url && links.push(project.url)
-
   const mainLink = project.url ? project.url : project.github_url ? project.github_url : "";
+
   
   return (
     <div 
@@ -27,26 +21,42 @@ export default function ProjectBox({i, project}:{i: number, project: Project}) {
         shadow-2xl
       "
     >
-      <Link href={mainLink}>
-        <div className="flex flex-col gap-4 text-black">
+      <a href={mainLink} target="_blank">
+        <div className="flex flex-col gap-4 text-black relative min-h-96">
           <h2>{project.name}</h2>
           <div className='relative min-h-32'>
-            <Image src={project.image_url} alt={project.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover object-top" priority/>
+            <Image 
+              src={project.image_url} 
+              alt={project.name} 
+              fill 
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
+              className="object-cover object-top" 
+              priority
+            />
           </div>
-          <p id="project_description" className="max-w-80">{project.description}</p>
+          <div className="flex flex-col flex-1 justify-between">
+            <p id="project_description" className="max-w-80">{project.description}</p>
+            <p id="project_tech" className="max-w-80">{project.tech}</p>
+          </div>
         </div>
-      </Link>      
+      </a>      
       <footer className='flex justify-between'>
-        {
-          links.map((link, i) => (
-            <Link 
-              key={i} 
-              href={link}
-            >
-              {i === 0 ? 'github' : project.name}
-            </Link>
-          ))
-        }            
+        {project.github_url &&
+          <a
+            target="_blank"
+            href={project.github_url}
+          >
+            github
+          </a> 
+        }
+        {project.url && 
+          <a
+            target="_blank"
+            href={project.url}
+          >
+            {project.name}
+          </a>    
+        }       
       </footer>
     </div>  
   )

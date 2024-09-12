@@ -1,44 +1,50 @@
 [
   {
     "name":"Wouter Kühne",
-    "url":"https://main--wouterkhune.netlify.app/ (temp)",
+    "url":"https://main--wouterkhune.netlify.app/",
     "image_url":"/images/wouter_kuhne.png",
     "github_url":"",
-    "description":"A portfolio site for an outstanding Jazz Drummer with a strapi CMS. Next13 | Strapi | Typescript | Tailwind | Google API"
+    "description":"A portfolio site for an outstanding Jazz Drummer with a strapi CMS.",
+    "tech":"Next13 | Strapi | Typescript | Tailwind | Google API"
   },
   {
     "name":"handydown", 
     "image_url":"/images/handydown.png",
     "github_url":"https://github.com/nicodann/handydown",
     "description":
-      "A Full-Stack CRUD App for donating used youth athletic equipment that your family has outgrown. Like a buy-and-sell without the money.  Built during bootcamp with Co-developer Todd Demone. React | MUI | Node | Express | Sequelize | Postgres"
+      "A Full-Stack CRUD App for donating used youth athletic equipment that your family has outgrown. Like a buy-and-sell without the money.  Built with co-developer Todd Demone. ",
+     "tech":"React | MUI | Node | Express | Sequelize | Postgres"
   },
   {
     "name": "PlotTwist", 
     "image_url":"",
     "github_url":"https://github.com/todd-demone/PlotTwist",
     "description":
-      "PlotTwist is a full-stack social app that allows users to collaborate on writing a short story. Built during bootcamp with Co-developer Todd Demone."
+      "PlotTwist is a full-stack social app that allows users to collaborate on writing a short story. Built with Co-developer Todd Demone.",
+    "tech":""
   },
   {
     "name":"scheduler", 
     "image_url":"/images/scheduler.png",
     "github_url":"https://github.com/nicodann/scheduler",
     "description":
-      "A Dynamic Interview Scheduler App - React, Bootstrap, SASS, Testing: End-to-End with Cypress and Components with Storybook"
+      "A Dynamic Interview Scheduler App",
+     "tech":"React, Bootstrap, SASS, Testing: End-to-End with Cypress and Components with Storybook"
   },
   {
     "name":"Nico Dann Drums",
     "url":"https://www.nicodann.com",
     "image_url":"/images/Nico_Dann_drums.png",
     "github_url":"https://github.com/nicodann/nicodanndotcom",
-    "description":"My personal artist page. React | Sass | | Typescript | Google API"
+    "description":"My personal artist page.",
+    "tech":"React | Sass | Typescript | Tailwind | Google API"
   },
   {
     "name":"Bernice Music",
     "url":"https://bernicemusic.com/",
     "image_url":"/images/bernice_music.png",
     "github_url":"",
-    "description":"A simple artist page built (years ago) using basic html/css/jquery"
+    "description":"A simple artist page built (years ago) using basic html/css/jquery",
+    "tech":"HTML | CSS | jQuery"
   }
 ]

@@ -4,4 +4,5 @@ export type Project = {
   image_url: string;
   github_url?: string;
   description: string;
+  tech:string;
 }
