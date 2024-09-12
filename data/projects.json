@@ -4,7 +4,7 @@
     "url":"https://main--wouterkhune.netlify.app/ (temp)",
     "image_url":"/images/wouter_kuhne.png",
     "github_url":"",
-    "description":"A portfolio site for an outstanding Jazz Drummer with a strapi CMS. Next13 | Strapi | Tailwind | Google API"
+    "description":"A portfolio site for an outstanding Jazz Drummer with a strapi CMS. Next13 | Strapi | Typescript | Tailwind | Google API"
   },
   {
     "name":"handydown", 
@@ -32,7 +32,7 @@
     "url":"https://www.nicodann.com",
     "image_url":"/images/Nico_Dann_drums.png",
     "github_url":"https://github.com/nicodann/nicodanndotcom",
-    "description":"My personal artist page. React | Sass | Google API"
+    "description":"My personal artist page. React | Sass | | Typescript | Google API"
   },
   {
     "name":"Bernice Music",
