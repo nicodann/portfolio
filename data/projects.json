@@ -1,11 +1,5 @@
 [
-  {
-    "name":"Nico Dann Drums",
-    "url":"https://www.nicodann.com",
-    "image_url":"/images/Nico_Dann_drums.png",
-    "github_url":"https://github.com/nicodann/nicodanndotcom",
-    "description":"My personal artist page"
-  },   
+   
   {
     "name":"handydown", 
     "image_url":"/images/handydown.png",
@@ -26,5 +20,12 @@
     "github_url":"https://github.com/nicodann/scheduler",
     "description":
       "A Dynamic Interview Scheduler App - React, Bootstrap, SASS, Testing: End-to-End with Cypress and Components with Storybook"
+  },
+  {
+    "name":"Nico Dann Drums",
+    "url":"https://www.nicodann.com",
+    "image_url":"/images/Nico_Dann_drums.png",
+    "github_url":"https://github.com/nicodann/nicodanndotcom",
+    "description":"My personal artist page"
   }
 ]
