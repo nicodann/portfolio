@@ -67,7 +67,18 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
   }
 
   return (
-    <header className="flex flex-col lg:flex-row gap-12 flex-wrap justify-between lg:w-full text-center">
+    <header 
+      className="
+        flex 
+        flex-col 
+        lg:flex-row 
+        gap-12 
+        flex-wrap 
+        justify-between 
+        lg:w-full 
+        text-center
+      "
+    >
       <div id="#title_reset_button" className='flex flex-col lg:items-end justify-center lg:justify-between lg:gap-2'>
         <div className='flex justify-center cursor-pointer'>
           {letterArrayUnicode.map((letter, i) => {
