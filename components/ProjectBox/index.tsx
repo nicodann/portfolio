@@ -8,20 +8,34 @@ export default function ProjectBox({i, project}:{i: number, project: Project}) {
   : []
 
   project.url && links.push(project.url)
+
+  const mainLink = project.url ? project.url : project.github_url ? project.github_url : "";
   
   return (
-    <div key={i} className="flex flex-col gap-6 bg-amber-50 p-4 justify-between w-72 sm:w-80 rounded-2xl shadow-2xl">
-      {project.url || project.github_url &&
-        <Link href={project.url ? project.url : project.github_url}>
-          <div className="flex flex-col gap-4 text-black">
-            <h2>{project.name}</h2>
-            <div className='relative min-h-32'>
-              <Image src={project.image_url} alt={project.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover object-top" priority/>
-            </div>
-            <p id="project_description" className="max-w-80">{project.description}</p>
+    <div 
+      key={i} 
+      className="
+        flex 
+        flex-col 
+        gap-6 
+        bg-amber-50 
+        p-4 
+        justify-between 
+        w-72 
+        sm:w-80 
+        rounded-2xl 
+        shadow-2xl
+      "
+    >
+      <Link href={mainLink}>
+        <div className="flex flex-col gap-4 text-black">
+          <h2>{project.name}</h2>
+          <div className='relative min-h-32'>
+            <Image src={project.image_url} alt={project.name} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover object-top" priority/>
           </div>
-        </Link>
-      }
+          <p id="project_description" className="max-w-80">{project.description}</p>
+        </div>
+      </Link>      
       <footer className='flex justify-between'>
         {
           links.map((link, i) => (
