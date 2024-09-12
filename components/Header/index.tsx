@@ -24,12 +24,14 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
   {}
 )
   const [letterMovedObject, setLetterMovedObject] = useState<{[key:string]:boolean}>(initialLetterMovedObject)
-  
-
   const bgColours = ['D6DBDC', '526760','374B4A','DA3E52', 'FE5F00'];
   const [colourIndex, setColourIndex] = useState(1);
   const [displayResetButton, setDisplayResetButton] = useState(false);
   const [counter, setCounter] = useState(1)
+
+  useEffect(() => {
+    console.log("colourIndex:",colourIndex)
+  }, [colourIndex]);
 
   useEffect(() => {
     counter !== 1 && setDisplayResetButton(true)
