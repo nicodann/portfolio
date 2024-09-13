@@ -30,10 +30,6 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
   const [counter, setCounter] = useState(1)
 
   useEffect(() => {
-    console.log("colourIndex:",colourIndex)
-  }, [colourIndex]);
-
-  useEffect(() => {
     counter !== 1 && setDisplayResetButton(true)
     counter === 1 && setDisplayResetButton(false)
   }, [counter]);
