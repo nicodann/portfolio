@@ -37,7 +37,7 @@
     "image_url":"/images/Nico_Dann_drums.png",
     "github_url":"https://github.com/nicodann/nicodanndotcom",
     "description":"My personal artist page.",
-    "tech":"React | Sass | Typescript | Tailwind | Google API"
+    "tech":"React | React Router | Sass | Typescript | Tailwind | Google API"
   },
   {
     "name":"Bernice Music",
