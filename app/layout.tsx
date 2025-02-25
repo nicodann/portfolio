@@ -1,14 +1,5 @@
 import type { Metadata } from 'next'
-// import { 
-//   Inter, 
-//   // Noto_Serif 
-//   Playfair_Display
-// } from 'next/font/google'
 import './globals.css'
-
-// const playfair = Playfair_Display({subsets: ['latin']})
-// const inter = Inter({ subsets: ['latin'] })
-// const noto = Noto_Serif({subsets: ['latin']})
 
 export const metadata: Metadata = {
   title: 'Nico Dann | Full Stack Web Developer',

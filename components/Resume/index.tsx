@@ -1,12 +1,24 @@
+"use client"
+
 import { useWindowWidth } from '@/hooks/useWindowWidth';
 import { useEffect, useState } from 'react';
-import { pdfjs } from 'react-pdf';
 import { Document, Page } from 'react-pdf';
+
+// import {  GlobalWorkerOptions } from "pdfjs-dist";
+
+// GlobalWorkerOptions.workerSrc = new URL(
+//   "pdfjs-dist/build/pdf.worker.min.mjs",
+//   import.meta.url
+// ).toString();
+
+import { pdfjs } from 'react-pdf';
 
 pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   'pdfjs-dist/build/pdf.worker.min.mjs',
   import.meta.url,
 ).toString();
+
+// pdfjs.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
 
 export default function Resume() {
   const windowWidth: number = useWindowWidth()
