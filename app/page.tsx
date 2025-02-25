@@ -2,6 +2,7 @@
 
 import Header from '@/components/Header'
 import ProjectGallery from '@/components/ProjectGallery'
+import Resume from '@/components/Resume';
 import { useState } from 'react'
 
 export default function Home() {  
@@ -12,6 +13,7 @@ export default function Home() {
       <div className=" flex flex-col gap-12 lg:gap-24">
         <Header setBgColour={setBgColour}/>
         <ProjectGallery />
+        <Resume />
       </div>      
     </main>
   )
