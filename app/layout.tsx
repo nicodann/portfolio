@@ -1,5 +1,9 @@
 import type { Metadata } from 'next'
-import './globals.css'
+import  './global.css'
+import { playfair, inter, dmSerifText } from './fonts'
+
+const fonts = [playfair, inter, dmSerifText]
+const fontsClassName = fonts.map((font) => font.variable).join(' ');
 
 export const metadata: Metadata = {
   title: 'Nico Dann | Full Stack Web Developer',
@@ -13,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={fontsClassName}>{children}</body>
     </html>
   )
 }

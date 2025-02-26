@@ -38,18 +38,27 @@ export default function Resume() {
   }, [windowWidth]);
 
   return (
-    <div id="resume" className="flex justify-center">
-      <Document
-        file="/files/Nico_Dann-Web_Developer_Resume_2025.pdf"
-        loading="Loading..."
+    <section id="resume" className="flex justify-center ">
+      <div
+        id='resume_wrapper'
+        className='
+          rounded-[1em]
+          overflow-hidden
+        '
       >
-        <Page 
-          pageNumber={1} 
-          renderTextLayer={false} 
-          renderAnnotationLayer={false}
-          width={pdfWidth}
-        />
-      </Document>
-    </div>
+        <Document
+          file="/files/Nico_Dann-Web_Developer_Resume_2025.pdf"
+          loading="Loading..."
+        >
+          <Page 
+            pageNumber={1} 
+            renderTextLayer={false} 
+            renderAnnotationLayer={false}
+            width={pdfWidth}
+          />
+        </Document>
+
+      </div>
+    </section>
   )
 }

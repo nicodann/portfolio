@@ -4,7 +4,7 @@
     "url":"https://wouterkuhne.com/",
     "image_url":"/images/wouter_kuhne.png",
     "github_url":"",
-    "description":"A portfolio site for an outstanding Jazz Drummer with a strapi CMS.",
+    "description":"A portfolio site for an outstanding Jazz Drummer based in Amsterdam.  Built using Next JS with a Strapi CMS for client editability.",
     "tech":"Next13 | Strapi | Typescript | Tailwind | Google API"
   },
   {

@@ -41,22 +41,27 @@ export default function ProjectBox({i, project}:{i: number, project: Project}) {
         </div>
       </a>      
       <footer className='flex justify-between'>
-        {project.github_url &&
-          <a
-            target="_blank"
-            href={project.github_url}
-          >
-            github
-          </a> 
-        }
-        {project.url && 
-          <a
-            target="_blank"
-            href={project.url}
-          >
-            {project.name}
-          </a>    
-        }       
+       
+        <div>
+          {project.url && 
+            <a
+              target="_blank"
+              href={project.url}
+            >
+              See the app.
+            </a>    
+          }
+        </div>
+        <div>
+          {project.github_url &&
+            <a
+              target="_blank"
+              href={project.github_url}
+            >
+              See the code.
+            </a> 
+          }
+        </div>
       </footer>
     </div>  
   )

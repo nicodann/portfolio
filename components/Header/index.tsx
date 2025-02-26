@@ -170,14 +170,14 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
             {links.map((link,i) => (
               <Fragment key={i}>
             
-                <h2 key={i}>
+                <h3 key={i}>
                   <Link href={link.href}>
                     {link.name}
                   </Link>
-                </h2>
+                </h3>
 
                 {i < links.length -1 && 
-                  <h2 className='hidden sm:inline'>|</h2>
+                  <h3 className='hidden sm:inline'>|</h3>
                 }
               </Fragment>
             )

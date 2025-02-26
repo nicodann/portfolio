@@ -17,7 +17,7 @@
 } */
 
 body {
-  color: rgb(var(--foreground-rgb));
+  /* color: rgb(var(--foreground-rgb)); */
   background: rgb(218, 62, 82);
   /* background: rgb(214,219,220) */
   /* background: rgb(var(--background-start-rgb)) */
@@ -31,18 +31,24 @@ body {
 
 h1 {
   font-size: 3.6em;
-  font-family: var(--font-playfair);
+  font-family: var(--font-dmSerifText);
+  /* font-family: var(--font-playfair) */
   font-weight: 500;
 }
 
 h2 {
+  font-size: 2em;
+  font-family: var(--font-dmSerifText);
+}
+
+h3 {
   font-size: 1.8em;
 }
 
 a {
-  color: darkorchid;
+  color: brown;
 }
 
 a:hover {
-  color: burlywood;
+  color: darkolivegreen;
 }

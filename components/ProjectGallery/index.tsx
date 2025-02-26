@@ -11,7 +11,7 @@ export default function ProjectGallery() {
 
   return (
     <section className="flex lg:flex-row justify-center flex-wrap gap-4 max-w-[1200px]">
-        {filteredProjects.map((project, i) => ProjectBox({ project, i }))}
-      </section>
+      {filteredProjects.map((project, i) => ProjectBox({ project, i }))}
+    </section>
   )
 }
