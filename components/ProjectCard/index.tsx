@@ -1,13 +1,14 @@
 import { Project } from "@/types/Project"
 import Image from "next/image"
 
-export default function ProjectBox({i, project}:{i: number, project: Project}) {
+export default function ProjectCard({i, project}:{i: number, project: Project}) {
   const mainLink = project.url ? project.url : project.github_url ? project.github_url : "";
 
   
   return (
     <div 
-      key={i} 
+      key={i}
+      id="project_card"
       className="
         flex 
         flex-col 
@@ -15,11 +16,11 @@ export default function ProjectBox({i, project}:{i: number, project: Project}) {
         bg-amber-50 
         p-4 
         justify-between 
-        w-72 
-        sm:w-80 
+        w-72
+        sm:w-80
+        shadow-4xl
         rounded-2xl 
-        shadow-2xl
-      "
+        "
     >
       <a href={mainLink} target="_blank">
         <div className="flex flex-col gap-4 text-black relative min-h-96">
@@ -48,7 +49,7 @@ export default function ProjectBox({i, project}:{i: number, project: Project}) {
               target="_blank"
               href={project.url}
             >
-              See the app.
+              Open the site/app.
             </a>    
           }
         </div>
