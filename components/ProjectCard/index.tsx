@@ -9,15 +9,14 @@ export default function ProjectCard({i, project}:{i: number, project: Project}) 
     <div 
       key={i} 
       id='project_card_wrapper' 
-      // p-2 
-      // hover:p-0 
       className='
         flex 
         justify-center 
         content-center
         p-2
-        hover:p-0
-        bg-purple-500 
+        hover:p-0        
+        w-80
+        h-[500px]
         '
       >
       <div         
@@ -29,13 +28,10 @@ export default function ProjectCard({i, project}:{i: number, project: Project}) 
           bg-amber-50 
           p-4 
           justify-between 
-          w-72
           sm:w-80
           shadow-4xl
           rounded-2xl 
           "
-          // m-2
-          // hover:m-0
       >
         <a href={mainLink} target="_blank">
           <div className="flex flex-col gap-4 text-black relative min-h-96">
