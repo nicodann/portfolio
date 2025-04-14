@@ -1,7 +1,7 @@
 import React from 'react'
 import projectsData from '@/data/projects.json'
 import { Project } from '@/types/Project';
-import ProjectBox from '../ProjectBox';
+import ProjectBox from '../ProjectCard';
 
 export default function ProjectGallery() {
 
