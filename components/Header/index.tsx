@@ -122,7 +122,7 @@ export default function Header({setBgColour}: {setBgColour: (value:string) => vo
           className='text-white cursor-pointer' 
           onClick={() => handleResetClick()}
         >
-          click above!
+          * click above
         </h3>
           }
       </button>

@@ -29,16 +29,20 @@ body {
     rgb(var(--background-start-rgb)); */
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-dmSerifText);
+}
+
 h1 {
   font-size: 3.6em;
-  font-family: var(--font-dmSerifText);
   /* font-family: var(--font-playfair) */
   font-weight: 500;
 }
 
 h2 {
   font-size: 2em;
-  font-family: var(--font-dmSerifText);
 }
 
 h3 {
