@@ -19,8 +19,10 @@ export default function MainPage() {
           selectedResource={selectedResource}
           setSelectedResource={setSelectedResource}
         />
-        {selectedResource === "projects" && <ProjectGallery />}
-        {selectedResource === "bio" && <Resume />}
+        <div style={{ minHeight: "100vh" }}>
+          {selectedResource === "projects" && <ProjectGallery />}
+          {selectedResource === "bio" && <Resume />}
+        </div>
       </div>
     </main>
   );

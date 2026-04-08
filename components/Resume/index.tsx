@@ -26,6 +26,10 @@ export default function Resume() {
   const [pdfWidth, setPdfWidth] = useState<number>(0);
 
   useEffect(() => {
+    document.getElementById("nav")?.scrollIntoView({ behavior: "instant", block: "start" });
+  }, []);
+
+  useEffect(() => {
     if (windowWidth < 500) {
       setPdfWidth(300);
     } else if (windowWidth > 500 && windowWidth < 768) {
@@ -55,6 +59,7 @@ export default function Resume() {
         <Document
           file="/files/Nico_Dann-Web_Developer_Resume_2025.pdf"
           loading="Loading..."
+          onLoadSuccess={() => document.getElementById("nav")?.scrollIntoView({ behavior: "smooth", block: "start" })}
         >
           <Page
             pageNumber={1}

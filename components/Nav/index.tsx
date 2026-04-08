@@ -14,7 +14,10 @@ export default function Nav(props: NavProps) {
       {resources.map((resource, i) => (
         <h3
           key={i}
-          onClick={() => setSelectedResource(resource)}
+          onClick={() => {
+            setSelectedResource(resource);
+            document.getElementById("nav")?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }}
           className={`cursor-pointer ${resource === selectedResource && "border-b-2 cursor-default"}`}
         >
           {resource}
