@@ -16,9 +16,15 @@
   }
 } */
 
+html,
 body {
   /* color: rgb(var(--foreground-rgb)); */
   background: rgb(218, 62, 82);
+  width: 100%;
+  overflow-x: clip;
+  scrollbar-width: none;
+  margin: none;
+  padding: none;
   /* background: rgb(214,219,220) */
   /* background: rgb(var(--background-start-rgb)) */
   /* background: linear-gradient(
@@ -56,3 +62,4 @@ a {
 a:hover {
   color: darkolivegreen;
 }
+

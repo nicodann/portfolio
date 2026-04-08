@@ -1,21 +1,27 @@
-"use client"
+"use client";
 
-import Header from '@/components/Header'
-import ProjectGallery from '@/components/ProjectGallery'
-import Resume from '@/components/Resume'
-import { useState } from 'react'
+import Header from "@/components/Header";
+import Nav from "@/components/Nav";
+import ProjectGallery from "@/components/ProjectGallery";
+import Resume from "@/components/Resume";
+import { useState } from "react";
 
-
+const resources = ["projects", "bio"];
 
 export default function MainPage() {
-  const [bgColour, setBgColour] = useState<string>('')
+  const [selectedResource, setSelectedResource] = useState(resources[0]);
   return (
-    <main className={`flex min-h-screen flex-col items-center justify-center gap-24 p-4`} style={{background: "#" + bgColour}}>
-          <div className=" flex flex-col gap-12 lg:gap-24">
-            <Header setBgColour={setBgColour}/>
-            <ProjectGallery />
-            <Resume />
-          </div>      
-        </main>
-  )
+    <main className={`flex min-h-screen flex-col justify-center gap-24 w-full`}>
+      <div className=" flex flex-col gap-12 lg:gap-24 w-full">
+        <Header />
+        <Nav
+          resources={resources}
+          selectedResource={selectedResource}
+          setSelectedResource={setSelectedResource}
+        />
+        {selectedResource === "projects" && <ProjectGallery />}
+        {selectedResource === "bio" && <Resume />}
+      </div>
+    </main>
+  );
 }
