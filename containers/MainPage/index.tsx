@@ -6,7 +6,7 @@ import ProjectGallery from "@/components/ProjectGallery";
 import Resume from "@/components/Resume";
 import { useState } from "react";
 
-const resources = ["projects", "bio"];
+const resources = ["projects", "resume"];
 
 export default function MainPage() {
   const [selectedResource, setSelectedResource] = useState(resources[0]);
@@ -21,7 +21,7 @@ export default function MainPage() {
         />
         <div style={{ minHeight: "100vh" }}>
           {selectedResource === "projects" && <ProjectGallery />}
-          {selectedResource === "bio" && <Resume />}
+          {selectedResource === "resume" && <Resume />}
         </div>
       </div>
     </main>
