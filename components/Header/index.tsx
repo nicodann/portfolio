@@ -30,22 +30,24 @@ export default function Header({
   }>(initialLetterMovedObject);
 
   const bgColours = [
-    "D6DBDC",
-    "526760",
-    "374B4A",
-    // "DA3E52",
-    "FE5F00",
+    "B7C9E2", //light grey blue
+    "D6DBDC", //light grey
+    "526760", //green-grey
+    "374B4A", //dark green-grey
+    // "DA3E52", // pinkey-red
+    "FE5F00", // orange
   ];
-  const [bgColour, setBgColour] = useState<string>(bgColours[3]);
-  const [colourIndex, setColourIndex] = useState(1);
+  const [bgColour, setBgColour] = useState<string>(bgColours[0]);
+  const [colourIndex, setColourIndex] = useState(0);
   const [counter, setCounter] = useState(1);
 
   const displayResetButton = Object.values(letterMovedObject).some(Boolean);
 
   const incrementColourIndex = () => {
-    colourIndex === bgColours.length - 1
-      ? setColourIndex(0)
-      : setColourIndex((prev) => prev + 1);
+    const nextIndex =
+      colourIndex === bgColours.length - 1 ? 0 : colourIndex + 1;
+    setColourIndex(nextIndex);
+    return nextIndex;
   };
 
   const incrementCounter = () => {
@@ -57,15 +59,15 @@ export default function Header({
   };
 
   const handleLetterClick = (i: number) => {
-    setBgColour(bgColours[colourIndex]);
-    incrementColourIndex();
+    const newColourIndex = incrementColourIndex();
+    setBgColour(bgColours[newColourIndex]);
     incrementCounter();
     setLetterMovedObject((prev) => ({ ...prev, [i]: true }));
   };
 
   const handleResetClick = () => {
-    setBgColour(bgColours[colourIndex]);
-    incrementColourIndex();
+    setBgColour(bgColours[0]);
+    // incrementColourIndex();
     setCounter(1);
     setLetterMovedObject(initialLetterMovedObject);
   };
