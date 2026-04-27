@@ -10,10 +10,11 @@ const resources = ["projects", "resume"];
 
 export default function MainPage() {
   const [selectedResource, setSelectedResource] = useState(resources[0]);
+
   return (
     <main className={`flex min-h-screen flex-col justify-center gap-24 w-full`}>
       <div className=" flex flex-col gap-12 lg:gap-24 w-full">
-        <Header />
+        <Header setSelectedResource={setSelectedResource} />
         <Nav
           resources={resources}
           selectedResource={selectedResource}

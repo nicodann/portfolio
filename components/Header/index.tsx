@@ -2,9 +2,13 @@
 
 import links from "@/data/links.json";
 import Link from "next/link";
-import { Fragment, useState } from "react";
+import { Dispatch, Fragment, SetStateAction, useState } from "react";
 
-export default function Header() {
+export default function Header({
+  setSelectedResource,
+}: {
+  setSelectedResource: Dispatch<SetStateAction<string>>;
+}) {
   const name = "Nico Dann";
   const letterArray = name.split("");
   const letterArrayUnicode = [...letterArray];
@@ -187,7 +191,16 @@ export default function Header() {
               {links.map((link, i) => (
                 <Fragment key={i}>
                   <h3 key={i}>
-                    <Link href={link.href}>{link.name}</Link>
+                    <Link
+                      href={link.href}
+                      onClick={
+                        link.href.startsWith("#resume")
+                          ? () => setSelectedResource("resume")
+                          : undefined
+                      }
+                    >
+                      {link.name}
+                    </Link>
                   </h3>
 
                   {i < links.length - 1 && (
