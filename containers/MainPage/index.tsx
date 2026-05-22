@@ -18,6 +18,7 @@ export default function MainPage() {
         className={`flex min-h-screen flex-col justify-center gap-24 w-full`}
       >
         <div className="flex flex-col gap-12 lg:gap-24 w-full">
+          {/* <Card> */}
           <div
             id="blurb"
             className="max-w-[320px] md:max-w-2xl mx-auto p-4 lg:p-0 lg:ml-[120px]"
@@ -33,6 +34,7 @@ export default function MainPage() {
               Passionate about accessibility and good design.
             </p>
           </div>
+          {/* </Card> */}
           <Nav
             resources={resources}
             selectedResource={selectedResource}

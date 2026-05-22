@@ -86,7 +86,7 @@ export default function Header({
           gap-12 
           flex-wrap 
           justify-between 
-          lg:w-[1200px]
+          lg:w-[950px]
           text-center
           pb-4
         "
