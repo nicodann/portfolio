@@ -74,7 +74,7 @@ export default function Header({
 
   return (
     <header
-      className="flex justify-center relative pb-20"
+      className="flex justify-center relative pb-8 md:pb-20"
       style={{ backgroundColor: bgColour ? `#${bgColour}` : undefined }}
     >
       <div
